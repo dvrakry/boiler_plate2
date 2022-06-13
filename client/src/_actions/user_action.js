@@ -25,3 +25,15 @@ export function RegisterUser(dataToSubmit) {
     payload: request,
   };
 }
+
+export function auth() {
+  const request = Axios.get("/api/users/auth").then(
+    (response) => response.data
+  ); //서버에서 받아온 데이터를 request에 저장
+
+  return {
+    //위에 request를 reducer로 넘기는 작업
+    type: AUTH_USER,
+    payload: request,
+  };
+}
